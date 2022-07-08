@@ -12,14 +12,13 @@
       </h3>
 
       <div class="rating-container">
-        <div v-for="i, index in 5" :key="index" class="rating">
-        <div class="rating-content">
-           {{i}}
-        </div>
-        </div>
+        <button v-for="i, index in 5" :key="index" class="rating-content"
+                :class="{'selected': index === SavedOption}" @click="HandleClick(index)">
+          {{i}}
+        </button>
       </div>
 
-      <button>Submit</button>
+      <button class="submit">Submit</button>
     </div>
 
   </div>
@@ -28,9 +27,31 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component
-export default class HelloWorld extends Vue {
+@Component({
+  name: 'interactive-rating',
+})
+export default class InteractiveRating extends Vue {
+  // Props
   @Prop() private msg!: string;
+
+  // State Variables
+  private savedOption = 100;
+
+  // Getters and Setters
+  get SavedOption(): number {
+    console.warn(this.savedOption);
+    return this.savedOption;
+  }
+
+  set SavedOption(value: number) {
+    this.savedOption = value;
+  }
+
+  // Methods
+  private HandleClick(option: number): void {
+    this.SavedOption = option;
+    // console.warn(this.savedOption);
+  }
 }
 </script>
 
@@ -83,26 +104,29 @@ export default class HelloWorld extends Vue {
       flex-direction: row;
       justify-content: space-between;
       margin-top: 2rem;
-      .rating {
-        background-color: #262e38;
-        color: #6F7880;
+      .rating-content {
+        padding: 1.3rem;
+        display: flex;
+        justify-content: center;
+        font-size: 1.25rem;
         border-radius: 2rem;
         width: 4rem;
         height: 4rem;
+        background-color: #262e38;
+        color: #6F7880;
         cursor: pointer;
+        border: none;
         &:hover {
           background-color: #FC7614;
           color: white;
         }
-        .rating-content {
-          padding: 1.3rem;
-          display: flex;
-          justify-content: center;
-          font-size: 1.25rem;
+        &.selected{
+          background-color: #7D8899;
+          color: white;
         }
       }
     }
-    button {
+    button.submit {
       width: 100%;
       color: white;
       background-color: #FC7614;
