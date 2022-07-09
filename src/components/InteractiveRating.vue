@@ -13,12 +13,12 @@
 
       <div class="rating-container">
         <button v-for="i, index in 5" :key="index" class="rating-content"
-                :class="{'selected': index === SavedOption}" @click="HandleClick(index)">
+                :class="{'selected': index === SavedOption}" @click="handleClick(index)">
           {{i}}
         </button>
       </div>
 
-      <button class="submit">Submit</button>
+      <button class="submit" @click="handleSubmit">Submit</button>
     </div>
 
   </div>
@@ -39,7 +39,6 @@ export default class InteractiveRating extends Vue {
 
   // Getters and Setters
   get SavedOption(): number {
-    console.warn(this.savedOption);
     return this.savedOption;
   }
 
@@ -48,9 +47,16 @@ export default class InteractiveRating extends Vue {
   }
 
   // Methods
-  private HandleClick(option: number): void {
+  private handleClick(option: number): void {
     this.SavedOption = option;
-    // console.warn(this.savedOption);
+  }
+
+  private handleSubmit(): void {
+    if (this.SavedOption !== 100) {
+      this.$emit('ratingValue', this.SavedOption);
+    } else {
+      alert("You didn't select any rating!");
+    }
   }
 }
 </script>
