@@ -64,12 +64,13 @@ export default class InteractiveRating extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container {
-  width: 450px;
-  height: 450px;
+  max-width: 450px;
+  max-height: 450px;
+  width: 95%;
+  height: 95%;
   background-color: #202630;
   border-radius: 3rem;
   display: flex;
-  margin: auto;
   left: 50%;
   top: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -79,8 +80,8 @@ export default class InteractiveRating extends Vue {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 100%;
     padding: 2.5rem;
+    width: 100%;
     .star {
       transform: scale(1);
       transform-origin: 0 0;
@@ -96,12 +97,13 @@ export default class InteractiveRating extends Vue {
     }
     h1 {
       display: flex;
-      color: white;
+      color: $white;
       margin-top: 2rem;
+      font-weight: 700
     }
     h3 {
       margin-top: 1rem;
-      color: #6f757f;
+      color: $grey;
       font-weight: 400;
       line-height: 1.5
     }
@@ -150,6 +152,19 @@ export default class InteractiveRating extends Vue {
       }
     }
   }
-
+}
+@media (max-width: 465px) {
+  .container {
+    // max-height: 485px;
+    h1 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+    .rating-content  {
+      transform: scale(0.8)
+    }
+  }
 }
 </style>

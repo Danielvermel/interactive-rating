@@ -87,13 +87,14 @@ export default class Confirmation extends Vue {
     }
     h1 {
       display: flex;
-      color: white;
+      color: $white;
       text-align: center;
       margin: 0 auto;
+      font-weight: 700;
     }
     h3 {
       margin-top: 1.25rem;
-      color: #6f757f;
+      color: $grey;
       font-weight: 400;
       line-height: 1.5;
       text-align: center;
@@ -103,11 +104,11 @@ export default class Confirmation extends Vue {
       flex-direction: row;
       justify-content: center;
       margin-top: 2rem;
-      background-color: #262e38;
+      background-color: $darkBlue;
       border-radius: 2rem;
       margin: auto;
       padding: 0.75rem;
-      color: #FC7614;
+      color: $primary;
     }
   }
 

@@ -7,7 +7,9 @@ module.exports = defineConfig({
     sourceMap: true,
     loaderOptions: {
       sass: {
-        additionalData: '@import "@/scss/_global.scss";'
+        additionalData: `
+        @import "@/scss/_global.scss";
+        @import "@/scss/_color.scss";`
       }
     }
   }
