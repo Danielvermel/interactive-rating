@@ -8,13 +8,13 @@
         You selected {{Rating}} out of 5
       </div>
 
-       <h1>Thank you</h1>
+       <h1>Thank you!</h1>
 
-      <h3>
+      <p>
         We appreciate you taking your time to give a rating.
         If you ever need more support, don't hesitate to
         get in touch!
-      </h3>
+      </p>
     </div>
 
   </div>
@@ -56,12 +56,13 @@ export default class Confirmation extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container {
-  width: 450px;
-  height: 450px;
+  max-width: 425px;
+  max-height: 425px;
+  width: 95%;
+  height: 95%;
   background-color: #202630;
   border-radius: 3rem;
   display: flex;
-  margin: auto;
   left: 50%;
   top: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -71,8 +72,8 @@ export default class Confirmation extends Vue {
     display: flex;
     flex-direction: column;
     position: relative;
+    padding: 2rem;
     width: 100%;
-    padding: 2.5rem;
     .thank-you {
       transform: scale(1);
       transform-origin: 0 0;
@@ -90,14 +91,16 @@ export default class Confirmation extends Vue {
       color: $white;
       text-align: center;
       margin: 0 auto;
-      font-weight: 700;
+      font-weight: 400;
+      font-family: 'Overpass', sans-serif;
     }
-    h3 {
+    p {
       margin-top: 1.25rem;
       color: $grey;
       font-weight: 400;
       line-height: 1.5;
       text-align: center;
+      font-family: 'Overpass', sans-serif;
     }
     .rating-selection {
       display: flex;
@@ -109,8 +112,8 @@ export default class Confirmation extends Vue {
       margin: auto;
       padding: 0.75rem;
       color: $primary;
+      font-family: 'Overpass', sans-serif;
     }
   }
-
 }
 </style>

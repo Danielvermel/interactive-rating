@@ -6,10 +6,10 @@
 
       <h1>How did we do?</h1>
 
-      <h3>
+      <p>
           Please let us know how we did with your support request.
           All feedback is appreciated to help us improve our offering!
-      </h3>
+      </p>
 
       <div class="rating-container">
         <button v-for="i, index in 5" :key="index" class="rating-content"
@@ -64,8 +64,8 @@ export default class InteractiveRating extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container {
-  max-width: 450px;
-  max-height: 450px;
+  max-width: 425px;
+  max-height: 425px;
   width: 95%;
   height: 95%;
   background-color: #202630;
@@ -80,7 +80,7 @@ export default class InteractiveRating extends Vue {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 2.5rem;
+    padding: 2rem;
     width: 100%;
     .star {
       transform: scale(1);
@@ -99,19 +99,21 @@ export default class InteractiveRating extends Vue {
       display: flex;
       color: $white;
       margin-top: 2rem;
-      font-weight: 700
+      font-weight: 400;
+      font-family: 'Overpass', sans-serif;
     }
-    h3 {
+    p {
       margin-top: 1rem;
       color: $grey;
       font-weight: 400;
-      line-height: 1.5
+      line-height: 1.5;
+      font-family: 'Overpass', sans-serif;
     }
     .rating-container {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       .rating-content {
         padding: 1.3rem;
         display: flex;
@@ -124,6 +126,7 @@ export default class InteractiveRating extends Vue {
         color: #6F7880;
         cursor: pointer;
         border: none;
+        transform: scale(0.9);
         &:hover {
           background-color: #FC7614;
           color: white;
@@ -144,26 +147,12 @@ export default class InteractiveRating extends Vue {
       padding: 1rem 0;
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       &:hover {
          color: #FC7614;
         background-color: white;
       }
-    }
-  }
-}
-@media (max-width: 465px) {
-  .container {
-    // max-height: 485px;
-    h1 {
-      font-size: 1.5rem;
-    }
-    h3 {
-      font-size: 1rem;
-    }
-    .rating-content  {
-      transform: scale(0.8)
     }
   }
 }
